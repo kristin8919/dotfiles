@@ -1,0 +1,20 @@
+---
+- name: Mac Setup
+  hosts: localhost
+  #become: true
+  connection: local
+  gather_facts: true
+  
+  vars:
+    homebrew_installed_packages:
+      - fzf
+      - starship
+
+  roles:
+    - geerlingguy.mac.homebrew
+
+  tasks:
+    - name: Get my user
+      ansible.builtin.set_fact:
+        remote_regular_user: "{{ ansible_env.SUDO_USER or ansible_user_id }}"
+
