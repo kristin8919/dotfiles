@@ -1,5 +1,5 @@
 ---
-- name: Mac Setup
+- name: Configure Host
   hosts: localhost
   #become: true
   connection: local
@@ -8,7 +8,13 @@
   vars:
     homebrew_installed_packages:
       - fzf
+      - tree
       - starship
+      - tmux
+      - neovim
+
+    homebrew_cask_apps:
+      - alacritty
 
   roles:
     - geerlingguy.mac.homebrew
