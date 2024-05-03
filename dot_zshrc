@@ -39,6 +39,3 @@ export CLICOLOR=1
 export LSCOLORS=DxGxBxDxCxEgEdxbxgxcxd
 export PATH="/usr/local/bin:$PATH"
 
-PATH="$PATH:/Applications/WezTerm.app/Contents/MacOS"
-export PATH
-
