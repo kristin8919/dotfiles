@@ -1,6 +1,0 @@
----
-roles:
-  - name: geerlingguy.dotfiles
-
-collections:
-  - name: geerlingguy.mac
