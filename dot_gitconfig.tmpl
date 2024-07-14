@@ -1,0 +1,29 @@
+[user]
+        name = Kristin
+        email = {{ .git_email }}
+[core]
+        excludesfile = /Users/kmarkle/.gitignore_global
+[merge]
+    tool = webstorm
+[mergetool "webstorm"]
+    cmd = /Applications/WebStorm.app/Contents/MacOS/webstorm merge $(cd $(dirname "$LOCAL") && pwd)/$(basename "$LOCAL") $(cd $(dirname "$REMOTE") && pwd)/$(basename "$REMOTE") $(cd $(dirname "$BASE") && pwd)/$(basename "$BASE") $(cd $(dirname "$MERGED") && pwd)/$(basename "$MERGED")
+    trustExitCode = true
+[diff]
+    tool = webstorm
+[difftool "webstorm"]
+    cmd = /Applications/WebStorm.app/Contents/MacOS/webstorm diff $(cd $(dirname "$LOCAL") && pwd)/$(basename "$LOCAL") $(cd $(dirname "$REMOTE") && pwd)/$(basename "$REMOTE")
+[push]
+        default = current
+[alias]
+  s = status
+  co = checkout
+  c = commit -m
+  a = add
+  save = !git add -A && git commit -m 'wip: quicksave'
+  uncommit = !git reset --soft HEAD^
+  plog = !git log --pretty=format:\"%C(magenta)%h%Creset -%C(red)%d%Creset %s %C(dim green)(%cr) [%an]\" --abbrev-commit -30
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
